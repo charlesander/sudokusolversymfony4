@@ -1,0 +1,10 @@
+bin/console debug:route
+
+php bin/phpunit
+
+bin/console make:unit-test
+bin/console make:functional-test
+
+
+PHPStorm getters and setters;
+⌘N
