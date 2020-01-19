@@ -4,6 +4,7 @@ namespace Project;
 
 use Exceptions\IncorrectNumberOfCellValuesPassed;
 use Project\Cell\Cell;
+use Project\Cell\CellFactory;
 
 /**
  * Created by PhpStorm.
@@ -25,14 +26,16 @@ class Board
      */
     public function __construct(array $cellValues)
     {
-        if(count($cellValues) != 81) {
+        if (count($cellValues) != 81) {
             throw new IncorrectNumberOfCellValuesPassed();
         }
+
+        $cellFactory = new CellFactory();
 
         $this->completed = false;
         $this->cells = [];
         for ($i = 0; $i < 81; $i++) {
-            $this->cells[] = new Cell($cellValues[$i]);
+            $this->cells[] = $cellFactory->create($cellValues[$i]);
         }
     }
 
