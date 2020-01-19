@@ -11,7 +11,21 @@ namespace Project\Cell;
 
 class Cell
 {
-   const CELL_SETTABLE_TYPE = 'settable';
-   const CELL_PRESET_TYPE = 'preset';
+    /**
+     * @var int
+     */
+    protected $value;
 
+    public function __construct(int $value)
+    {
+        $this->value = $value;
+    }
+
+    /**
+     *
+     */
+    public function getValue(): int
+    {
+        return $this->value;
+    }
 }

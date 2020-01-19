@@ -11,4 +11,11 @@ namespace Project\Cell;
 
 class CellSettable extends Cell implements CellInterface
 {
+    /**
+     * @param int $value
+     * @return mixed
+     */
+    public function setValue(int $value) {
+        $this->value = $value;
+    }
 }

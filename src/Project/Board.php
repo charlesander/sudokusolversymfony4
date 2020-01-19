@@ -2,6 +2,7 @@
 
 namespace Project;
 
+use Exceptions\IncorrectNumberOfCellValuesPassed;
 use Project\Cell\Cell;
 
 /**
@@ -22,12 +23,16 @@ class Board
     /**
      * Board constructor.
      */
-    public function __construct()
+    public function __construct(array $cellValues)
     {
+        if(count($cellValues) != 81) {
+            throw new IncorrectNumberOfCellValuesPassed();
+        }
+
         $this->completed = false;
         $this->cells = [];
         for ($i = 0; $i < 81; $i++) {
-            $this->cells[] = new Cell('preset');
+            $this->cells[] = new Cell($cellValues[$i]);
         }
     }
 

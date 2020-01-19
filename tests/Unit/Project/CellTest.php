@@ -14,13 +14,13 @@ class CellTest extends TestCase
 
         //An instantiated cell has the following:
         //1) A string 'type' of either 'preset' or 'settable'
-        $cell = new Cell();
+        $cell = new Cell(0);
         $this->assertInstanceOf(Cell::class, $cell);
 
-        $cell = new CellPreset();
+        $cell = new CellPreset(0);
         $this->assertInstanceOf(CellPreset::class, $cell);
 
-        $cell = new CellSettable();
+        $cell = new CellSettable(1);
         $this->assertInstanceOf(CellSettable::class, $cell);
     }
 }

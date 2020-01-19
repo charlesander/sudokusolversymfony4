@@ -14,11 +14,12 @@ use Project\Cell\Cell;
 
 class CellFactory
 {
-    public function create(string $type): Cell {
-        if($type == Cell::CELL_SETTABLE_TYPE) {
-            return new CellSettable();
-        } else if ($type == Cell::CELL_PRESET_TYPE) {
-            return new CellPreset();
+    public function create(int $value): Cell
+    {
+        if ($value === 0) {
+            return new CellSettable(0);
+        } else if ($value <= 9) {
+            return new CellPreset($value);
         }
         throw new InvalidCellTypeException();
     }
